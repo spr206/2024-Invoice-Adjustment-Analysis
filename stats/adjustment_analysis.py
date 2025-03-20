@@ -82,7 +82,7 @@ def analyze_financial_adjustments(file_path):
         })
     
     # Threshold analysis
-    thresholds = [1000, 2500, 5000, 7500, 10000, 15000, 20000, 25000, 30000, 40000, 50000]
+    thresholds = [1000, 2500, 5000, 7500, 10000]
     threshold_analysis = []
     
     for threshold in thresholds:
@@ -170,18 +170,18 @@ def display_results(results):
         print(f"${threshold['threshold']}: {threshold['count_below']} adjustments below ({threshold['percentage_below']:.2f}%)")
     
     # Natural breaks
-    print("\n=== SIGNIFICANT GAPS IN DATA ===")
-    for i, gap in enumerate(results['gaps'][:5]):  # Top 5 gaps
-        print(f"Gap between ${gap['lower_value']:.2f} and ${gap['upper_value']:.2f}: ${gap['gap']:.2f} ({gap['gap_percentage']:.2f}%)")
+    # print("\n=== SIGNIFICANT GAPS IN DATA ===")
+    # for i, gap in enumerate(results['gaps'][:5]):  # Top 5 gaps
+    #     print(f"Gap between ${gap['lower_value']:.2f} and ${gap['upper_value']:.2f}: ${gap['gap']:.2f} ({gap['gap_percentage']:.2f}%)")
     
     # Recommendations
-    print("\n=== RECOMMENDED THRESHOLDS ===")
-    for rec in results['recommended']:
-        print(f"{rec['level']} threshold: ${rec['value']} (covers {rec['coverage']:.2f}% of adjustments)")
+    # print("\n=== RECOMMENDED THRESHOLDS ===")
+    # for rec in results['recommended']:
+    #     print(f"{rec['level']} threshold: ${rec['value']} (covers {rec['coverage']:.2f}% of adjustments)")
     
-    print("\n=== RECOMMENDATION ===")
-    print("Based on the analysis, a ceiling of $xx,xxx is recommended.")
-    print("This threshold would cover approximately x% of all adjustments,")
+    # print("\n=== RECOMMENDATION ===")
+    # print("Based on the analysis, a ceiling of $xx,xxx is recommended.")
+    # print("This threshold would cover approximately x% of all adjustments,")
 
 # Optional: Create simple visualization
 def plot_distribution(results):
